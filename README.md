@@ -1,7 +1,10 @@
 # HTTP-debug
-Debugs http connection.
+Some tools for http debugging
 
-## Options
+## request.ts
+Sends a HTTP request and displays the direct tcp messages. Can also do the same for WebSocket connections.
+
+### Options
 - `HOSTNAME`: The host it will connect to.
 - `--port=PORT`: The port it will use.
 - `-t | --tls`: Makes the connection use tls.
@@ -9,9 +12,18 @@ Debugs http connection.
 - `--header="HEADER-NAME: HEADER VALUE"`: Adds custom header. Can be used multiple times.
 - `--data="DATA" | --payload="PAYLOAD"`: Add custom text to the req body. Can be used multiple times.
 
-## Examples
+### Examples
 ```bash
 # These two do the same thing
 deno run --allow-all main.ts -t --port=443 --data="Hello, world!" --method="POST" --path=hello example.com
 deno run --allow-all main.ts -data="Hello, world!" --method="POST" https://example.com/hello
+```
+
+## stress.ts
+Stress tests a host. Only use with permission
+
+### Examples
+```bash
+# These two do the same thing
+deno run --allow-all main.ts http://localhost/
 ```
