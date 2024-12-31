@@ -22,8 +22,12 @@ deno run --allow-all main.ts -data="Hello, world!" --method="POST" https://examp
 ## stress.ts
 Stress tests a host. Only use with permission
 
+### Options
+`FULL_URL AMOUNT COOLDOWN`
+
 ### Examples
 ```bash
 # These two do the same thing
-deno run --allow-all main.ts http://localhost/
+deno run --allow-all main.ts http://localhost/ 100000 0
+deno run --allow-all main.ts http://localhost/ 1000 100
 ```
